@@ -1,3 +1,4 @@
+#PYTHON 
 class Node:
     def __init__(self, id):
         self.id = id
@@ -40,23 +41,19 @@ class Tree:
 
     def Depth(self, u):
         node = self.findNode(self.root, u)
-        return self.calculateDepth(node,self.root)
+        return self.calculateDepth(self.root,node)
     
-    def calculateDepth(self,node,stack=[],path=1):
-        if node == self.root.id:
-            return 1
-        stack.append(self.root.id)
-        while stack:
-            new = stack.pop()
-            if new == node:
-                return path
-            else:
-                path += 1
-                for child in node.children:
-                    if child.id:
-                        stack.append(child.id)
-        return path
-            
+    def calculateDepth(self,start,end,path=1):
+        if start == None:
+            return 0 
+        if end.id == start.id:
+            return path
+        else:
+            for child in start.children:
+                a = self.calculateDepth(child,end,path+1)
+                if a != 0:
+                    return a
+        return 0
 def process_data(input_data):
     tree = Tree()
     lines = input_data.strip().split('\n')
