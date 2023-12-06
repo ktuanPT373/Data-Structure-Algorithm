@@ -8,4 +8,4 @@ while m > 1:
 print(arr)
 
 # Time: O(n^2)
-# Space: O(n) 
+# Space: O(1) 

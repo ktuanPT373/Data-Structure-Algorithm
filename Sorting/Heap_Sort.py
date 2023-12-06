@@ -23,3 +23,5 @@ def heap_sort(arr,N):
 
 heap_sort(arr,N)
 print(arr)
+# Time: O(nlog(n))
+# Space: O(1)
